@@ -2,15 +2,15 @@
 #define MAX_PARTITIONS 8
 #define MAX_MESSAGES 100
 
-typedef struct{
+typedef struct {
     char *messages[MAX_MESSAGES];
     int count;
     unsigned long long log_offset;
-}Partition;
+} Partition;
 
-typedef struct{
+typedef struct {
     char name[64];
     Partition partitions[MAX_PARTITIONS];
     int partition_name;
     int rr_index;
-}Topic;
+} Topic;
