@@ -14,6 +14,9 @@ IndentPPDirectives: None
 SpaceAfterCStyleCast: false
 SpaceBeforeAssignmentOperators: true
 IndentWrappedFunctionNames: false
+AllowShortFunctionsOnASingleLine: None
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
 AlwaysBreakAfterReturnType: None
 ContinuationIndentWidth: 4
 PointerAlignment: Right
