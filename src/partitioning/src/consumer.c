@@ -1,7 +1,7 @@
+#include "../include/consumer.h"
 #include <pthread.h>
 #include <stdio.h>
 #include <unistd.h>
-#include "../include/consumer.h"
 
 void *consume_messages(void *args) {
     ConsumerArgs *cargs = (ConsumerArgs *)args;
