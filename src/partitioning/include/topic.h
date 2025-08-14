@@ -11,6 +11,6 @@ typedef struct {
 typedef struct {
     char name[64];
     Partition partitions[MAX_PARTITIONS];
-    int partition_name;
+    int partition_count;
     int rr_index;
 } Topic;
