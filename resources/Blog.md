@@ -1,0 +1,1 @@
+[Kafka Intro](https://medium.com/nerd-for-tech/a-basic-introduction-to-kafka-a7d10a7776e6)
