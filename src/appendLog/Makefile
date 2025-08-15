@@ -3,7 +3,8 @@ SRC = main.c \
     src/logger.c \
     ../partitioning/src/broker.c \
     ../compression/src/compressor.c \
-    ../logger/src/logger.c
+    ../logger/src/logger.c \
+    ../memory/src/mempool.c
 
 OUT = kafka_appendLog
 LIBS = -lz
