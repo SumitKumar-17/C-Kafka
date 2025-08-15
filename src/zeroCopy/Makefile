@@ -1,13 +1,15 @@
 CC = gcc
 SRC = main.c \
-../partitioning/src/broker.c \
-../partitioning/src/producer.c \
-src/server.c
+    src/server.c \
+    ../partitioning/src/broker.c \
+    ../partitioning/src/producer.c \
+    ../logger/src/logger.c
 
 OUT = kafka_zeroCopy
+LIBS = -pthread
 
 $(OUT): $(SRC)
-	$(CC) $(SRC) -o $(OUT)
+	$(CC) $(SRC) -o $(OUT) $(LIBS)
 
 run:
 	./$(OUT)

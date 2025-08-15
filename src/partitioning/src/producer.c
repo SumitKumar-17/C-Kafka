@@ -1,4 +1,5 @@
 #include "../include/producer.h"
+#include "../../logger/include/logger.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -6,7 +7,7 @@
 void produce_message(Broker *broker, char *topic_name, char *message) {
     Topic *topic = get_topic(broker, topic_name);
     if (!topic) {
-        printf("Topic %s not found.\n", topic_name);
+        log_message(LOG_LEVEL_PRODUCER, "ERROR: Topic '%s' not found.", topic_name);
         return;
     }
 
@@ -15,11 +16,9 @@ void produce_message(Broker *broker, char *topic_name, char *message) {
 
     if (p->count < MAX_MESSAGES) {
         p->messages[p->count++] = strdup(message);
-        printf("Message %s sent to topic %s, partition %d\n", message, topic_name, index);
-        // you can call the append message logs function here;
-        //  p->log_offset++;
+        log_message(LOG_LEVEL_PRODUCER, "Message '%s' sent to topic '%s', partition %d.", message, topic_name, index);
         topic->rr_index = (topic->rr_index + 1) % (topic->partition_count);
     } else {
-        printf("Partition %d of topic %s is full", index, topic_name);
+        log_message(LOG_LEVEL_PRODUCER, "ERROR: Partition %d of topic '%s' is full.", index, topic_name);
     }
 }

@@ -1,4 +1,5 @@
 #include "../include/broker.h"
+#include "../../logger/include/logger.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -7,6 +8,7 @@ Broker *create_broker() {
     Broker *broker = malloc(sizeof(Broker));
     broker->topics = NULL;
     broker->topic_count = 0;
+    log_message(LOG_LEVEL_BROKER, "Broker created.");
     return broker;
 }
 
@@ -30,4 +32,5 @@ void add_topic(Broker *broker, char *name, int partition_count) {
     }
 
     broker->topic_count++;
+    log_message(LOG_LEVEL_BROKER, "Topic '%s' added with %d partitions.", name, partition_count);
 }
