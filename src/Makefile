@@ -1,4 +1,4 @@
-SUBDIRS = appendLog mmap partitioning threadCore zeroCopy compression logger memory
+SUBDIRS = broker client producer appendLog mmap partitioning threadCore zeroCopy compression logger memory
 
 all: $(SUBDIRS)
 
