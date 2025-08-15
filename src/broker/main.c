@@ -1,7 +1,7 @@
 #include "../partitioning/include/broker.h"
 #include "../logger/include/logger.h"
-#include "../appendLog/include/logger.h" // Our file logger
-#include "../memory/include/mempool.h"    // Our memory pool
+#include "../appendLog/include/logger.h" 
+#include "../memory/include/mempool.h"    
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,7 +13,6 @@
 #define PORT 8080
 #define MAX_CLIENTS 10
 
-// Global broker state
 Broker *g_broker;
 MemoryPool* g_pool;
 pthread_mutex_t g_broker_mutex = PTHREAD_MUTEX_INITIALIZER;
@@ -25,17 +24,15 @@ void *handle_client(void *socket_desc) {
     char buffer[1024] = {0};
     read(sock, buffer, 1024);
     
-    // Simple protocol parsing: "PRODUCE <topic> <message>"
     char command[16], topic_name[64];
     char *message;
 
     if (sscanf(buffer, "%15s %63s", command, topic_name) == 2 && strcmp(command, "PRODUCE") == 0) {
-        // Find where the message starts
         message = strchr(buffer, ' ');
         if (message) {
             message = strchr(message + 1, ' ');
             if (message) {
-                message++; // Move past the space to the start of the message
+                message++; 
                 
                 pthread_mutex_lock(&g_broker_mutex);
                 
@@ -47,7 +44,6 @@ void *handle_client(void *socket_desc) {
 
                 if (topic) {
                     log_message(LOG_LEVEL_BROKER, "PRODUCE request for topic '%s': \"%s\"", topic_name, message);
-                    // Use our existing file-logging logic!
                     append_message_to_log(&topic->partitions[0], message, g_pool);
                 }
                 
@@ -64,8 +60,8 @@ void *handle_client(void *socket_desc) {
 
 int main() {
     g_broker = create_broker();
-    g_pool = pool_create(1024, 100); // Create a global memory pool for logging
-
+    g_pool = pool_create(1024, 100); 
+    
     int server_fd, new_socket;
     struct sockaddr_in address;
     int opt = 1;
@@ -107,8 +103,8 @@ int main() {
             perror("could not create thread");
             continue;
         }
-        pthread_detach(thread_id); // We don't need to join the threads
-    }
+        pthread_detach(thread_id);
+        }
 
     pool_destroy(g_pool);
     return 0;
