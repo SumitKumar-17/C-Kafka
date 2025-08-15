@@ -1,0 +1,131 @@
+# Compiled executables and binaries
+*.exe
+*.out
+*.app
+kafka_*
+**/kafka_*
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Static libraries
+*.a
+*.lib
+
+# Shared libraries
+*.so
+*.so.*
+*.dylib
+*.dll
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Core dumps
+core
+core.*
+
+# Temporary files
+*~
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+logs.txt
+**/logs.txt
+
+# Build directories
+build/
+bin/
+obj/
+target/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-*
+*.code-workspace
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Backup files
+*.bak
+*.backup
+*.orig
+
+# Memory profiling files
+*.memcheck
+*.valgrind
+
+# GDB files
+.gdb_history
+
+# Coverage files
+*.gcov
+*.gcda
+*.gcno
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile.cmake
+
+# Autotools generated files
+config.log
+config.status
+configure
+autom4te.cache/
+aclocal.m4
+
+# Package files
+*.tar.gz
+*.zip
+*.7z
+*.rar
+
+# Documentation generated files
+docs/html/
+docs/latex/
+*.pdf
+doxygen_warnings.txt
+
+# Test output files
+test_output/
+test_results/
+
+# Compressed files that might be generated
+*.gz
+*.bz2
+*.xz
+*.Z
+
+# Configuration files that shouldn't be tracked
+.env
+.env.local
+.env.production
+config.local
+
+# Tags files
+tags
+TAGS
+
+# Temporary compilation files
+*.i
+*.s
