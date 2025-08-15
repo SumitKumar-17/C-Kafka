@@ -12,4 +12,5 @@ run:
 	./$(OUT)
 	
 clean:
-	rm -f $(OUT)
+	rm -f $(OUT) 
+	rm -rf temp
