@@ -1,4 +1,4 @@
-SUBDIRS = appendLog mmap partitioning threadCore zeroCopy
+SUBDIRS = appendLog mmap partitioning threadCore zeroCopy compression
 
 all: $(SUBDIRS)
 
